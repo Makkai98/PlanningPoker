@@ -4,12 +4,16 @@ package com.example.planningpoker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -31,6 +35,15 @@ public class MainActivity extends FragmentActivity implements MyRecyclerViewAdap
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
+        Button vote_button = findViewById(R.id.button_vote);
+        vote_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                setContentView(R.layout.fragment_voters_list);
+
+            }
+        });
 
     }
 
@@ -40,4 +53,5 @@ public class MainActivity extends FragmentActivity implements MyRecyclerViewAdap
         selected.setText(adapter.getItem(position));
 
     }
+
 }

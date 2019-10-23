@@ -1,36 +1,27 @@
 package com.example.planningpoker;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link VoteFragment.OnFragmentInteractionListener} interface
+ * {@link VotersListFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link VoteFragment#newInstance} factory method to
+ * Use the {@link VotersListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VoteFragment extends Fragment  {
-
-
+public class VotersListFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -42,7 +33,7 @@ public class VoteFragment extends Fragment  {
 
     private OnFragmentInteractionListener mListener;
 
-    public VoteFragment() {
+    public VotersListFragment() {
         // Required empty public constructor
     }
 
@@ -52,11 +43,11 @@ public class VoteFragment extends Fragment  {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment VoteFragment.
+     * @return A new instance of fragment VotersListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static VoteFragment newInstance(String param1, String param2) {
-        VoteFragment fragment = new VoteFragment();
+    public static VotersListFragment newInstance(String param1, String param2) {
+        VotersListFragment fragment = new VotersListFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,25 +62,15 @@ public class VoteFragment extends Fragment  {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
-
-
-
-
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_vote, container, false);
+        return inflater.inflate(R.layout.fragment_voters_list, container, false);
 
-
-        return  rootView;
     }
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
