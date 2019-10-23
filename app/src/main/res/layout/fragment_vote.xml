@@ -7,12 +7,10 @@
     tools:context=".VoteFragment">
 
 
-
-
     <TextView
         android:id="@+id/tv_question"
-        android:layout_width="323dp"
-        android:layout_height="98dp"
+        android:layout_width="327dp"
+        android:layout_height="74dp"
         android:text="Here comes the question"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
@@ -21,25 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148"></TextView>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvNumbers"
-            android:layout_width="match_parent"
-            android:layout_height="329dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.305" />
-
-    </RelativeLayout>
+        app:layout_constraintVertical_bias="0.118"></TextView>
 
     <TextView
         android:id="@+id/tv_votername"
@@ -54,13 +34,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.821"></TextView>
+        app:layout_constraintVertical_bias="0.725"></TextView>
+
 
     <Button
         android:id="@+id/button_vote"
         android:layout_width="140dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="56dp"
         android:text="Vote"
         android:textColor="@color/colorPrimary"
         android:textSize="24dp"
@@ -68,5 +49,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/rvNumbers"
+        android:layout_width="361dp"
+        android:layout_height="255dp"
+        android:layout_row="0"
+        android:layout_column="0"
+        app:layout_constraintBottom_toTopOf="@+id/tv_votername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_question"
+        app:layout_constraintVertical_bias="0.423"></androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="104dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="64dp"
+        android:text="Selected:"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_vote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.389"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_selectednumber"
+        android:layout_width="122dp"
+        android:layout_height="29dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_vote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_votername"
+        app:layout_constraintVertical_bias="0.15" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

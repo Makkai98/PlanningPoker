@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,9 +26,9 @@ import android.view.ViewGroup;
  * Use the {@link VoteFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VoteFragment extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
+public class VoteFragment extends Fragment  {
 
-    MyRecyclerViewAdapter adapter;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -70,11 +71,10 @@ public class VoteFragment extends Fragment implements MyRecyclerViewAdapter.Item
         }
 
 
+
+
     }
 
-    public void onItemClick(View view, int position) {
-        Log.i("TAG", "You clicked number " + adapter.getItem(position) + ", which is at cell position " + position);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,6 +85,7 @@ public class VoteFragment extends Fragment implements MyRecyclerViewAdapter.Item
 
         return  rootView;
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
