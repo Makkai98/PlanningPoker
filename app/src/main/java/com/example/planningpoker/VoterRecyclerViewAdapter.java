@@ -50,7 +50,7 @@ public class VoterRecyclerViewAdapter extends RecyclerView.Adapter<VoterRecycler
         TextView name;
         TextView question;
         TextView answer;
-
+//coo
         ViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.voter_name);
