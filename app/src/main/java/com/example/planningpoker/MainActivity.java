@@ -55,7 +55,7 @@ public class MainActivity extends FragmentActivity implements MyRecyclerViewAdap
                 uQuestion=question.getText().toString();
                 uAnswer=answer.getText().toString();
                 uName=name.getText().toString();
-                //db.insertVoter(uName,uQuestion,uAnswer);
+                db.insertVoter(uName,uQuestion,uAnswer);
                 setContentView(R.layout.fragment_voters_list);
 
             }

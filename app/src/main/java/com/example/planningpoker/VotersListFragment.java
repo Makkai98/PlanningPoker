@@ -79,15 +79,14 @@ public class VotersListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_voters_list, container, false);
-
+        db=new DatabaseHelper(getActivity());
         recyclerView=view.findViewById(R.id.voterlist_recyclerview);
         recyclerView.setHasFixedSize(true);
         //SQLiteDatabase sqLiteDatabase=db.getReadableDatabase();
         layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        db=new DatabaseHelper(getContext());
         List<Voter>voters=db.getAllVoter();
-        mAdapter=new VoterRecyclerViewAdapter(getContext(),voters);
+        mAdapter=new VoterRecyclerViewAdapter(voters);
         recyclerView.setAdapter(mAdapter);
         return view;
 

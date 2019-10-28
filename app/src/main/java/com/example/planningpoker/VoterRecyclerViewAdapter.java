@@ -17,8 +17,8 @@ public class VoterRecyclerViewAdapter extends RecyclerView.Adapter<VoterRecycler
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    VoterRecyclerViewAdapter(Context context, List<Voter> data) {
-        this.mInflater = LayoutInflater.from(context);
+    VoterRecyclerViewAdapter(List<Voter> data) {
+        //this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
 
