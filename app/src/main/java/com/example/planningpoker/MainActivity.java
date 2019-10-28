@@ -20,12 +20,16 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends FragmentActivity implements MyRecyclerViewAdapter.ItemClickListener {
     MyRecyclerViewAdapter adapter;
+    DatabaseHelper db;
+    private  TextView question,answer;
+    private TextView name;
+    private String uName, uQuestion, uAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_vote);
-        String[] data = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
+        String[] data = {"0", "1/2", "1", "2", "3", "5", "8", "13", "20", "40", "80", "100", "inf", "?", "coffe", "XL", "L", "M", "S", "XS"};
 
         // set up the RecyclerView
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rvNumbers);
@@ -35,11 +39,23 @@ public class MainActivity extends FragmentActivity implements MyRecyclerViewAdap
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
+        db = new DatabaseHelper(this);
+
+        name=findViewById(R.id.tv_votername);
+        name.setText(getIntent().getStringExtra("Name"));
+        question= findViewById(R.id.tv_question);
+        question.setText("Mennyire vagytok faradtak?");
+        answer= findViewById(R.id.tv_selectednumber);
+
         Button vote_button = findViewById(R.id.button_vote);
         vote_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                uQuestion=question.getText().toString();
+                uAnswer=answer.getText().toString();
+                uName=name.getText().toString();
+                //db.insertVoter(uName,uQuestion,uAnswer);
                 setContentView(R.layout.fragment_voters_list);
 
             }

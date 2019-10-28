@@ -11,6 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -30,6 +34,12 @@ public class VotersListFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerView;
+    private VoterRecyclerViewAdapter mAdapter;
+    private TextView mTextViewEmpty;
+    private DatabaseHelper db;
+    private RecyclerView.LayoutManager layoutManager;
+    List<Voter> voters=new ArrayList<>();
 
     private OnFragmentInteractionListener mListener;
 
@@ -68,7 +78,18 @@ public class VotersListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_voters_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_voters_list, container, false);
+
+        recyclerView=view.findViewById(R.id.voterlist_recyclerview);
+        recyclerView.setHasFixedSize(true);
+        //SQLiteDatabase sqLiteDatabase=db.getReadableDatabase();
+        layoutManager = new LinearLayoutManager(this.getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        db=new DatabaseHelper(getContext());
+        List<Voter>voters=db.getAllVoter();
+        mAdapter=new VoterRecyclerViewAdapter(getContext(),voters);
+        recyclerView.setAdapter(mAdapter);
+        return view;
 
     }
 

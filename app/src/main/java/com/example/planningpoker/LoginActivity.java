@@ -10,19 +10,24 @@ import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
 
+    DatabaseHelper db;
+    EditText username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        EditText name = findViewById(R.id.editText_name);
+        username = findViewById(R.id.editText_name);
         Button sign_in = findViewById(R.id.button_signin);
         //adatbazismuvelet
 
-        final Intent login_intent = new Intent(LoginActivity.this, MainActivity.class);
+
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent login_intent = new Intent(LoginActivity.this, MainActivity.class);
+                login_intent.putExtra("Name",username.getText().toString());
                 startActivity(login_intent);
             }
         });
